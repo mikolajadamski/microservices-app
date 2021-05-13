@@ -17,7 +17,7 @@ public class CurrencyConversionController {
     @Autowired
     CurrencyExchangeProxy proxy;
 
-    @GetMapping("currency-conversion-feign/from/{initCurrency}/to/{resultCurrency}/quantity/{quantity}")
+    @GetMapping("currency-conversion/from/{initCurrency}/to/{resultCurrency}/quantity/{quantity}")
     public CurrencyConversion calculateCurrencyConversion(@PathVariable String initCurrency,
                                                           @PathVariable String resultCurrency,
                                                           @PathVariable BigDecimal quantity){
@@ -61,4 +61,6 @@ public class CurrencyConversionController {
                 quantity.multiply(currencyConversion.getConversionMultiple()),
                 currencyConversion.getEnvironment());
     }
+
+
 }
